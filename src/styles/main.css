@@ -1,0 +1,77 @@
+@tailwind preflight;
+@tailwind utilities;
+@tailwind components;
+
+body {
+  @apply bg-white font-sans antialiased leading-normal;
+}
+
+* {
+  transition: all 0.2s ease;
+}
+
+a {
+  @apply text-grey-dark;
+}
+
+a:hover {
+  @apply text-black;
+}
+
+/* Typography */
+
+p {
+  @apply text-grey leading-normal;
+}
+
+.page-title h1::after {
+  @apply bg-grey-light h-px w-16 block mx-auto;
+  content: '';
+}
+
+/* Product */
+
+.product-image:hover img {
+  /* transform: scale(1.05); */
+  transition: all 0.2s ease;
+  /* cursor: zoom-in; */
+}
+
+/* Nav */
+
+.nav-item:first-child {
+  @apply ml-0;
+}
+
+.nav-item {
+  @apply ml-12;
+}
+
+.nav-item > a {
+  @apply no-underline block text-grey;
+}
+
+.nav-item > a:hover {
+  @apply text-black;
+}
+
+/* Home */
+
+.hero {
+  @apply bg-grey-light w-screen relative flex items-center;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+@screen lg {
+  .hero {
+    min-height: 700px;
+  }
+}
+
+.hero img {
+  transform: scale(2);
+  transform-origin: top;
+}
