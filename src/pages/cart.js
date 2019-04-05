@@ -1,9 +1,25 @@
 import React, { useContext } from 'react'
 import { Link } from 'gatsby'
+import axios from 'axios'
+import Easypost from '@easypost/api'
 
 import { CartContext } from '../components/Cartkit'
 import PageTitle from '../components/PageTitle'
 import CartItemList from '../components/CartItemList'
+
+const easyPost = new Easypost(process.env.EASYPOST_TEST_KEY);
+
+const fromAddress = new easyPost.Address({
+  company: 'EasyPost',
+  street1: '417 Montgomery Street',
+  street2: '5th Floor',
+  city: 'San Francisco',
+  state: 'CA',
+  zip: '94104',
+  phone: '415-528-7555'
+});
+
+fromAddress.save().then(console.log);
 
 export default function CartPage() {
   const { isEmpty } = useContext(CartContext)
